@@ -8,10 +8,13 @@ export default function Home() {
   return (
     <div>
       <header className={styles.header}>
-        <Image src={logoImg} width={286 / 2} />
+        <Image src={logoImg} width={286 / 2} alt="Blog da Rocketseat" />
 
         <nav className={styles.nav}>
-          <a href="https://github.com/erik-ferreira">
+          <a
+            href="https://github.com/erik-ferreira"
+            aria-label="Acessar Github"
+          >
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -63,8 +66,8 @@ export default function Home() {
         </article>
       </main>
 
-      <footer className={styles.header}>
-        <Image src={logoImg} width={286 / 2} />
+      <footer className={styles.footer}>
+        <Image src={logoImg} width={286 / 2} alt="Blog da Rocketseat" />
 
         <nav className={styles.nav} aria-label="Rodapé">
           <a href="https://github.com/erik-ferreira">Termos de uso</a>
