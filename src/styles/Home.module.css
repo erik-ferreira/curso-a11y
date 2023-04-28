@@ -20,8 +20,12 @@
   padding: 24px 20px;
 }
 
-.content h2 {
+.content h1 {
   margin-bottom: 20px;
+}
+
+.content h2 {
+  font-size: 16px;
 }
 
 .content p {

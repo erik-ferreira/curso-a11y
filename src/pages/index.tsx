@@ -3,10 +3,15 @@ import Image from "next/image";
 import logoImg from "../assets/logo.svg";
 
 import styles from "../styles/Home.module.css";
+import Head from "next/head";
 
 export default function Home() {
   return (
-    <div>
+    <>
+      <Head>
+        <title>Desenvolvendo uma web acessível | Rocketseat Blog</title>
+      </Head>
+
       <header className={styles.header}>
         <Image src={logoImg} width={286 / 2} alt="Blog da Rocketseat" />
 
@@ -36,12 +41,12 @@ export default function Home() {
       <main>
         <article className={styles.content}>
           <header>
-            <h2>Desenvolvendo uma web acessível</h2>
+            <h1>Desenvolvendo uma web acessível</h1>
 
-            <h4>
+            <h2>
               Protocolos e diretrizes orientam o desenvolvimento de tecnologias
               acessíveis, mas é preciso olhar para além de tudo isso
-            </h4>
+            </h2>
           </header>
 
           <p>
@@ -62,7 +67,7 @@ export default function Home() {
             afirmação está na W3C.
           </p>
 
-          <h3>O que é acessibilidade, afinal?</h3>
+          <h2>O que é acessibilidade, afinal?</h2>
         </article>
       </main>
 
@@ -70,9 +75,9 @@ export default function Home() {
         <Image src={logoImg} width={286 / 2} alt="Blog da Rocketseat" />
 
         <nav className={styles.nav} aria-label="Rodapé">
-          <a href="https://github.com/erik-ferreira">Termos de uso</a>
+          <a href="#terms">Termos de uso</a>
         </nav>
       </footer>
-    </div>
+    </>
   );
 }
