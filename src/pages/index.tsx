@@ -1,11 +1,29 @@
+import Head from "next/head";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 import logoImg from "../assets/logo.svg";
 
 import styles from "../styles/Home.module.css";
-import Head from "next/head";
 
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  function handleModalOpen() {
+    setIsModalOpen(true);
+  }
+
+  function handleModalClose() {
+    setIsModalOpen(false);
+  }
+
+  useEffect(() => {
+    if (isModalOpen) {
+      modalRef?.current?.focus();
+    }
+  }, [isModalOpen]);
+
   return (
     <>
       <Head>
@@ -75,9 +93,25 @@ export default function Home() {
         <Image src={logoImg} width={286 / 2} alt="Blog da Rocketseat" />
 
         <nav className={styles.nav} aria-label="Rodapé">
-          <a href="#terms">Termos de uso</a>
+          <button type="button" onClick={handleModalOpen}>
+            Termos de uso
+          </button>
         </nav>
       </footer>
+
+      {isModalOpen && (
+        <div
+          ref={modalRef}
+          className={styles.modal}
+          role="dialog"
+          aria-labelledby="termsOfUseTitle"
+          aria-describedby="termsOfUseDesc"
+          tabIndex={-1} // Para o modal não ser focado através do teclado
+        >
+          <h2 id="termsOfUseTitle">Termos de Uso</h2>
+          <p id="termsOfUseDesc">Esses são os termos de uso</p>
+        </div>
+      )}
     </>
   );
 }
